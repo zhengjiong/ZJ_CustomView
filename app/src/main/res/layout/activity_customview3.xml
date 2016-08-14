@@ -1,0 +1,17 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+    <com.zj.example.view.customview3.CustomView3
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        app:txtcontent="CustomView1_XML中设置自定义属性"
+        app:txtcolor="#fa6953"
+        app:txtsize="16sp"
+        />
+    <!--app:txtsize="18sp"-->
+</LinearLayout>

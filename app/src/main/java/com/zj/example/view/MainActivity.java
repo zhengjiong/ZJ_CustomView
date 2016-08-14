@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
         items.add(new Item("Demo1-CircleView", CircleViewActivity.class));
         items.add(new Item("Demo2-CircleView", CustomView2Activity.class));
+        items.add(new Item("Demo3-自定义View几种设置属性的方法", CustomView3Activity.class));
 
         mRecyclerView = (RecyclerView) findViewById(R.id.recyclerview);
 
