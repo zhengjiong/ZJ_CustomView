@@ -117,8 +117,8 @@ public class CustomView3 extends View{
         mPaint.setColor(mTxtColor);
         canvas.drawText(
                 mContent,
-                getWidth() / 2 - mRect.width() / 2,//讓文字水平居中
-                getHeight() / 2 + mRect.height() / 2,//讓文字錘子居中
+                getMeasuredWidth() / 2 - mRect.width() / 2,//讓文字水平居中
+                getMeasuredHeight() / 2 + mRect.height() / 2,//讓文字錘子居中
                 mPaint);
 
 
