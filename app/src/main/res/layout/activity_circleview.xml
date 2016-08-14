@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-    <com.zj.example.view.customview.CircleView
+    <com.zj.example.view.customview1.CircleView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@android:color/black"
+        android:background="#fcd1fd"
         app:circle_color="#fd8cd7"
         app:circle_size="60dp"/>
 </LinearLayout>

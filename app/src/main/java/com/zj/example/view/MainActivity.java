@@ -15,6 +15,15 @@ import com.zj.example.view.bean.Item;
 import java.util.ArrayList;
 import java.util.List;
 
+
+/**
+ * Description:
+ * Copyright:Copyright(c)2016
+ * CreateTime:16/8/14  20:01
+ * @author 郑炯
+ * @version 1.0
+ */
+
 public class MainActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private List<Item> items = new ArrayList<>();
@@ -26,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         items.add(new Item("Demo1-CircleView", CircleViewActivity.class));
+        items.add(new Item("Demo2-CircleView", CustomView2Activity.class));
 
         mRecyclerView = (RecyclerView) findViewById(R.id.recyclerview);
 

@@ -7,7 +7,6 @@ import android.support.v7.app.AppCompatActivity;
  * Title: Item
  * Description:
  * Copyright:Copyright(c)2016
- * Company: 博智维讯信息技术有限公司
  * CreateTime:16/8/14  11:47
  *
  * @author 郑炯
