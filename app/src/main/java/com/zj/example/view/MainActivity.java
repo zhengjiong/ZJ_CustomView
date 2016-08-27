@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.zj.example.view.bean.Item;
 import com.zj.example.view.fragment.CustomView10Fragment;
+import com.zj.example.view.fragment.CustomView11Fragment;
 import com.zj.example.view.fragment.CustomView1Fragment;
 import com.zj.example.view.fragment.CustomView2Fragment;
 import com.zj.example.view.fragment.CustomView3Activity;
@@ -52,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
         items.add(new Item("Demo8-ProgressView-Animation", CustomView8Fragment.class, true));
         items.add(new Item("Demo9-VerticalLine-LinearLayout", CustomView9Fragment.class, true));
         items.add(new Item("Demo10-Delivery-status", CustomView10Fragment.class, true));
+        items.add(new Item("Demo11-Touch-move", CustomView11Fragment.class, true));
 
         mRecyclerView = (RecyclerView) findViewById(R.id.recyclerview);
 
