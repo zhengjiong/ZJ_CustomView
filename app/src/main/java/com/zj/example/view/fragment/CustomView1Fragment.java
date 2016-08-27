@@ -1,28 +1,30 @@
-package com.zj.example.view;
+package com.zj.example.view.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.zj.example.view.R;
+
 /**
- * Title: CustomView6Fragment
  * Description:
  * Copyright:Copyright(c)2016
- * Company: 博智维讯信息技术有限公司
- * CreateTime:16/8/27  12:27
+ * CreateTime:16/8/14  11:41
  *
  * @author 郑炯
  * @version 1.0
  */
-public class CustomView6Fragment extends Fragment {
+public class CustomView1Fragment extends Fragment {
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_customview6, container, false);
+        View view = inflater.inflate(R.layout.activity_circleview, container, false);
         return view;
     }
+
 }
