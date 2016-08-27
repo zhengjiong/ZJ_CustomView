@@ -1,9 +1,7 @@
-package com.zj.example.view.customview2;
+package com.zj.example.view.customview2_circleview;
 
-import android.app.Activity;
 import android.content.Context;
 import android.util.DisplayMetrics;
-import android.view.Display;
 import android.view.WindowManager;
 
 /**

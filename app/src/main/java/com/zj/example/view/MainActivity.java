@@ -34,10 +34,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        items.add(new Item("Demo1-CircleView", CircleViewActivity.class));
-        items.add(new Item("Demo2-CircleView", CustomView2Activity.class));
-        items.add(new Item("Demo3-自定义View几种设置属性的方法", CustomView3Activity.class));
-        items.add(new Item("Demo4-ProgressView", CustomView4Activity.class));
+        items.add(new Item("Demo1-CircleView", CustomView1Fragment.class, true));
+        items.add(new Item("Demo2-CircleView", CustomView2Fragment.class, true));
+        items.add(new Item("Demo3-自定义View几种设置属性的方法", CustomView3Activity.class, false));
+        items.add(new Item("Demo4-ProgressView", CustomView4Fragment.class, true));
+        items.add(new Item("Demo6-canvas_save,translate,restore", CustomView6Fragment.class, true));
+        items.add(new Item("Demo7-LinearGradient-Matrix", CustomView7Fragment.class, true));
 
         mRecyclerView = (RecyclerView) findViewById(R.id.recyclerview);
 
@@ -70,7 +72,14 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, item.clazz));
+                Intent intent;
+                if (item.isFragment) {
+                    intent = new Intent(MainActivity.this, DisplayActivity.class);
+                    intent.putExtra("fragment", item.clazz);
+                } else {
+                    intent = new Intent(MainActivity.this, item.clazz);
+                }
+                startActivity(intent);
             }
         }
 

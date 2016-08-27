@@ -15,9 +15,11 @@ import android.support.v7.app.AppCompatActivity;
 public class Item {
     public String name;
     public Class clazz;
+    public boolean isFragment;
 
-    public Item(String name, Class clazz) {
+    public Item(String name, Class clazz, boolean isFragment) {
         this.name = name;
         this.clazz = clazz;
+        this.isFragment = isFragment;
     }
 }

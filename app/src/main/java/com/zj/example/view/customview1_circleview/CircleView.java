@@ -1,4 +1,4 @@
-package com.zj.example.view.customview1;
+package com.zj.example.view.customview1_circleview;
 
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;

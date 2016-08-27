@@ -15,10 +15,8 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".CircleViewActivity"/>
-        <activity android:name=".CustomView2Activity"/>
+        <activity android:name=".DisplayActivity"/>
         <activity android:name=".CustomView3Activity" android:theme="@style/Theme_CustomView3Activity"/>
-        <activity android:name=".CustomView4Activity"/>
     </application>
 
 </manifest>

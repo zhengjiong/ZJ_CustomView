@@ -3,8 +3,6 @@ package com.zj.example.view;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import com.zj.example.view.customview2.CustomView;
-
 /**
  * Created by zhengjiong on 15/10/31.
  */

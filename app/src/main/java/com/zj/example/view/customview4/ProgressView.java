@@ -103,7 +103,6 @@ public class ProgressView extends View{
         RectF rectF = new RectF(strokeWidth, strokeWidth, 2*circleX - strokeWidth, 2*circleX - strokeWidth);
 
         canvas.drawArc(rectF, -90, mProgress, false, mPaintProgress);
-
         //Log.i("zj", "mProgress = " + mProgress);
     }
 }
