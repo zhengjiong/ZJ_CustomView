@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.zj.example.view.bean.Item;
+import com.zj.example.view.fragment.CustomView10Fragment;
 import com.zj.example.view.fragment.CustomView1Fragment;
 import com.zj.example.view.fragment.CustomView2Fragment;
 import com.zj.example.view.fragment.CustomView3Activity;
@@ -18,6 +19,7 @@ import com.zj.example.view.fragment.CustomView4Fragment;
 import com.zj.example.view.fragment.CustomView6Fragment;
 import com.zj.example.view.fragment.CustomView7Fragment;
 import com.zj.example.view.fragment.CustomView8Fragment;
+import com.zj.example.view.fragment.CustomView9Fragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,6 +50,8 @@ public class MainActivity extends AppCompatActivity {
         items.add(new Item("Demo6-canvas_save,translate,restore", CustomView6Fragment.class, true));
         items.add(new Item("Demo7-LinearGradient-Matrix", CustomView7Fragment.class, true));
         items.add(new Item("Demo8-ProgressView-Animation", CustomView8Fragment.class, true));
+        items.add(new Item("Demo9-VerticalLine-LinearLayout", CustomView9Fragment.class, true));
+        items.add(new Item("Demo10-Delivery-status", CustomView10Fragment.class, true));
 
         mRecyclerView = (RecyclerView) findViewById(R.id.recyclerview);
 
