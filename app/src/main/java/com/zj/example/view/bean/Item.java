@@ -16,10 +16,18 @@ public class Item {
     public String name;
     public Class clazz;
     public boolean isFragment;
+    public int layout;
 
     public Item(String name, Class clazz, boolean isFragment) {
         this.name = name;
         this.clazz = clazz;
         this.isFragment = isFragment;
+    }
+
+    public Item(String name, Class clazz, boolean isFragment, int layout) {
+        this.name = name;
+        this.clazz = clazz;
+        this.isFragment = isFragment;
+        this.layout = layout;
     }
 }

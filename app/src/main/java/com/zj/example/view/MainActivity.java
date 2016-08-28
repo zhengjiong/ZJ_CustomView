@@ -11,18 +11,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.zj.example.view.bean.Item;
-import com.zj.example.view.fragment.CustomView10Fragment;
-import com.zj.example.view.fragment.CustomView11Fragment;
-import com.zj.example.view.fragment.CustomView12Fragment;
-import com.zj.example.view.fragment.CustomView13Fragment;
-import com.zj.example.view.fragment.CustomView14Fragment;
-import com.zj.example.view.fragment.CustomView15Fragment;
-import com.zj.example.view.fragment.CustomView1Fragment;
 import com.zj.example.view.fragment.CustomView2Fragment;
 import com.zj.example.view.fragment.CustomView3Activity;
-import com.zj.example.view.fragment.CustomView4Fragment;
-import com.zj.example.view.fragment.CustomView6Fragment;
-import com.zj.example.view.fragment.CustomView7Fragment;
 import com.zj.example.view.fragment.CustomView8Fragment;
 import com.zj.example.view.fragment.CustomView9Fragment;
 
@@ -47,20 +37,20 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        items.add(new Item("Demo1-CircleView", CustomView1Fragment.class, true));
+        items.add(new Item("Demo1-CircleView", DisplayFragment.class, true, R.layout.activity_circleview));
         items.add(new Item("Demo2-CircleView", CustomView2Fragment.class, true));
         items.add(new Item("Demo3-自定义View几种设置属性的方法", CustomView3Activity.class, false));
-        items.add(new Item("Demo4-ProgressView", CustomView4Fragment.class, true));
-        items.add(new Item("Demo6-canvas_save,translate,restore", CustomView6Fragment.class, true));
-        items.add(new Item("Demo7-LinearGradient-Matrix", CustomView7Fragment.class, true));
+        items.add(new Item("Demo4-ProgressView", DisplayFragment.class, true, R.layout.activity_customview4));
+        items.add(new Item("Demo6-canvas_save,translate,restore", DisplayFragment.class, true, R.layout.fragment_customview6));
+        items.add(new Item("Demo7-LinearGradient-Matrix", DisplayFragment.class, true, R.layout.fragment_customview7));
         items.add(new Item("Demo8-ProgressView-Animation", CustomView8Fragment.class, true));
         items.add(new Item("Demo9-VerticalLine-LinearLayout", CustomView9Fragment.class, true));
-        items.add(new Item("Demo10-Delivery-status", CustomView10Fragment.class, true));
-        items.add(new Item("Demo11-TouchMove-getRawX", CustomView11Fragment.class, true));
-        items.add(new Item("Demo12-TouchMove-getX", CustomView12Fragment.class, true));
-        items.add(new Item("Demo13-TouchMove-offsetLeftAndRight", CustomView13Fragment.class, true));
-        items.add(new Item("Demo14-TouchMove-Layoutparams", CustomView14Fragment.class, true));
-        items.add(new Item("Demo15-TouchMove-scrollby", CustomView15Fragment.class, true));
+        items.add(new Item("Demo10-Delivery-status", DisplayFragment.class, true, R.layout.fragment_customview10));
+        items.add(new Item("Demo11-TouchMove-getRawX", DisplayFragment.class, true, R.layout.fragment_customview11));
+        items.add(new Item("Demo12-TouchMove-getX", DisplayFragment.class, true, R.layout.fragment_customview12));
+        items.add(new Item("Demo13-TouchMove-offsetLeftAndRight", DisplayFragment.class, true, R.layout.fragment_customview13));
+        items.add(new Item("Demo14-TouchMove-Layoutparams", DisplayFragment.class, true, R.layout.fragment_customview14));
+        items.add(new Item("Demo15-TouchMove-scrollby", DisplayFragment.class, true, R.layout.fragment_customview15));
 
         mRecyclerView = (RecyclerView) findViewById(R.id.recyclerview);
 
@@ -100,6 +90,10 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     intent = new Intent(MainActivity.this, item.clazz);
                 }
+                if (item.layout != 0) {
+                    intent.putExtra("layout", item.layout);
+                }
+
                 startActivity(intent);
             }
         }

@@ -21,9 +21,17 @@ public class DisplayActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         try {
             Class fragmentClass = (Class) getIntent().getSerializableExtra("fragment");
+            int layoutRes = getIntent().getIntExtra("layout", 0);
+
+            Fragment instantiate = Fragment.instantiate(this, fragmentClass.getName());
+            if (layoutRes != 0) {
+                Bundle args = new Bundle();
+                args.putInt("layout", layoutRes);
+                instantiate.setArguments(args);
+            }
 
             getSupportFragmentManager().beginTransaction()
-                    .replace(android.R.id.content, Fragment.instantiate(this, fragmentClass.getName()), fragmentClass.getName())
+                    .replace(android.R.id.content, instantiate, fragmentClass.getName())
                     .commitAllowingStateLoss();
         } catch (Exception e) {
             e.printStackTrace();
