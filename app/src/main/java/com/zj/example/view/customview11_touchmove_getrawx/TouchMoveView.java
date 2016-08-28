@@ -1,16 +1,14 @@
-package com.zj.example.view.customview11_touch_move;
+package com.zj.example.view.customview11_touchmove_getrawx;
 
 import android.content.Context;
-import android.graphics.Canvas;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 
 /**
  * Title: TouchMoveView
- * Description:
+ * Description:使用getRaw方式(绝对坐标系)
  * Copyright:Copyright(c)2016
- * Company: 博智维讯信息技术有限公司
  * CreateTime:16/8/27  21:58
  *
  * @author 郑炯

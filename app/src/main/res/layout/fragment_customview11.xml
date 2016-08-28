@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.zj.example.view.customview11_touch_move.TouchMoveView
+    <com.zj.example.view.customview11_touchmove_getrawx.TouchMoveView
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:background="@color/colorAccent"/>
