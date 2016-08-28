@@ -14,7 +14,6 @@ import com.zj.example.view.customview9_vertical_line.VerticalLineLinearlayout;
  * Title: CustomView9Fragment
  * Description:
  * Copyright:Copyright(c)2016
- * Company: 博智维讯信息技术有限公司
  * CreateTime:16/8/27  16:02
  *
  * @author 郑炯

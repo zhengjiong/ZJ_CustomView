@@ -14,7 +14,6 @@ import com.zj.example.view.customview8_progressview.ProgressView;
  * Title: CustomView8Fragment
  * Description:
  * Copyright:Copyright(c)2016
- * Company: 博智维讯信息技术有限公司
  * CreateTime:16/8/27  15:41
  *
  * @author 郑炯

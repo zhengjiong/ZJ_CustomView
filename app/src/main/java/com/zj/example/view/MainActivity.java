@@ -1,8 +1,8 @@
 package com.zj.example.view;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -14,6 +14,9 @@ import com.zj.example.view.bean.Item;
 import com.zj.example.view.fragment.CustomView10Fragment;
 import com.zj.example.view.fragment.CustomView11Fragment;
 import com.zj.example.view.fragment.CustomView12Fragment;
+import com.zj.example.view.fragment.CustomView13Fragment;
+import com.zj.example.view.fragment.CustomView14Fragment;
+import com.zj.example.view.fragment.CustomView15Fragment;
 import com.zj.example.view.fragment.CustomView1Fragment;
 import com.zj.example.view.fragment.CustomView2Fragment;
 import com.zj.example.view.fragment.CustomView3Activity;
@@ -28,7 +31,6 @@ import java.util.List;
 
 
 /**
- * Description:
  * Copyright:Copyright(c)2016
  * CreateTime:16/8/14  20:01
  * @author 郑炯
@@ -56,6 +58,9 @@ public class MainActivity extends AppCompatActivity {
         items.add(new Item("Demo10-Delivery-status", CustomView10Fragment.class, true));
         items.add(new Item("Demo11-TouchMove-getRawX", CustomView11Fragment.class, true));
         items.add(new Item("Demo12-TouchMove-getX", CustomView12Fragment.class, true));
+        items.add(new Item("Demo13-TouchMove-offsetLeftAndRight", CustomView13Fragment.class, true));
+        items.add(new Item("Demo14-TouchMove-Layoutparams", CustomView14Fragment.class, true));
+        items.add(new Item("Demo15-TouchMove-scrollby", CustomView15Fragment.class, true));
 
         mRecyclerView = (RecyclerView) findViewById(R.id.recyclerview);
 

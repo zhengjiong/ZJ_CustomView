@@ -13,7 +13,6 @@ import com.zj.example.view.R;
  * Title: CustomView6Fragment
  * Description:
  * Copyright:Copyright(c)2016
- * Company: 博智维讯信息技术有限公司
  * CreateTime:16/8/27  12:27
  *
  * @author 郑炯

@@ -51,6 +51,7 @@ public class TouchMoveView extends View {
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
+        //在onSizeChanged中获取控件的宽高,onMeasure中也可以获取,但是onMeasure会执行多次
 
         width = getMeasuredWidth();
         height = getMeasuredHeight();

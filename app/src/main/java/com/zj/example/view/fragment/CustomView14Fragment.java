@@ -10,20 +10,20 @@ import android.view.ViewGroup;
 import com.zj.example.view.R;
 
 /**
- * Title: CustomView7Fragment
+ * Title: CustomView12Fragment
  * Description:
  * Copyright:Copyright(c)2016
- * CreateTime:16/8/27  12:31
+ * CreateTime:16/8/28  08:55
  *
  * @author 郑炯
  * @version 1.0
  */
-public class CustomView7Fragment extends Fragment {
+public class CustomView14Fragment extends Fragment{
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_customview7, container, false);
+        View view = inflater.inflate(R.layout.fragment_customview14, container, false);
         return view;
     }
 }

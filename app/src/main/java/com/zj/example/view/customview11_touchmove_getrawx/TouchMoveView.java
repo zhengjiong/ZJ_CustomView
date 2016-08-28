@@ -7,6 +7,19 @@ import android.view.View;
 
 /**
  * Title: TouchMoveView
+ *
+ * getTop:获取View自身的顶边到其父布局顶边的距离
+ * getLeft:获取View自身的左边到其父布局左边的距离
+ * getRight:获取View自身的右边到其父布局左边的距离
+ * getBottom:获取View自身底边到其父布局的顶边距离
+ *
+ * MotionEvent提供的方法:
+ * getX:获取点击事件距离控件左边的距离,即视图坐标
+ * getY:获取点击事件距离控件顶边的距离,即视图坐标
+ *
+ * getRawX:获取点击事件距离整个屏幕左边的距离, 即绝对坐标
+ * getRawY:获取点击事件距离整个屏幕顶边的距离, 即绝对坐标
+ *
  * Description:使用getRaw方式(绝对坐标系)
  * Copyright:Copyright(c)2016
  * CreateTime:16/8/27  21:58
