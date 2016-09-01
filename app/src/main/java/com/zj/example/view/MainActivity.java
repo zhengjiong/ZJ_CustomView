@@ -51,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
         items.add(new Item("Demo13-TouchMove-offsetLeftAndRight", DisplayFragment.class, true, R.layout.fragment_customview13));
         items.add(new Item("Demo14-TouchMove-Layoutparams", DisplayFragment.class, true, R.layout.fragment_customview14));
         items.add(new Item("Demo15-TouchMove-scrollby", DisplayFragment.class, true, R.layout.fragment_customview15));
+        items.add(new Item("Demo20-StrokeStyle", DisplayFragment.class, true, R.layout.fragment_stroke_style_layout));
 
         mRecyclerView = (RecyclerView) findViewById(R.id.recyclerview);
 
