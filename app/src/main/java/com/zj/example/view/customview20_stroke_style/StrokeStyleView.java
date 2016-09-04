@@ -26,7 +26,7 @@ public class StrokeStyleView extends View {
         super(context, attrs, defStyleAttr);
 
         paint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        paint.setDither(true);//房子图像抖动, 画面会更加柔和
+        paint.setDither(true);//防止图像抖动, 画面会更加柔和
         paint.setStyle(Paint.Style.STROKE);
 
         /**

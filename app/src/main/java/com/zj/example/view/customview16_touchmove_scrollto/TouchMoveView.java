@@ -1,4 +1,4 @@
-package com.zj.example.view.customview13_touchmove_offsetLeftAndRight;
+package com.zj.example.view.customview16_touchmove_scrollto;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -9,7 +9,7 @@ import android.view.View;
  * Title: TouchMoveView
  * Description:
  * Copyright:Copyright(c)2016
- * CreateTime:16/8/28  11:38
+ * CreateTime:16/8/28  20:19
  *
  * @author 郑炯
  * @version 1.0
@@ -32,37 +32,31 @@ public class TouchMoveView extends View {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        int action = event.getAction();
-
-        /**
-         * 当前触摸点坐标
-         */
         int currentX = (int) event.getX();
         int currentY = (int) event.getY();
 
-        switch (action) {
+        switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 lastX = currentX;
                 lastY = currentY;
+
                 break;
             case MotionEvent.ACTION_MOVE:
-                /**
-                 * 计算偏移量
-                 */
                 int offsetX = currentX - lastX;
                 int offsetY = currentY - lastY;
 
-
-                offsetLeftAndRight(offsetX);
-
-                offsetTopAndBottom(offsetY);
-                break;
-            case MotionEvent.ACTION_UP:
-
+                /**
+                 * 因为scrollBy和scrollTo移动的是View中的内容而不是View本事,如果是ViewGroup就是移动内部的子View
+                 * 所以必须要getParent,让ParentView来移动子View。
+                 *
+                 * 如果将offsetX和offsetY设置为正数,那么子View将向坐标轴的负方向移动, 如果负数则将向
+                 * 坐标轴的正方向移动,所以要使用-offsetX, -offsetY
+                 */
+                //((View) getParent()).scrollBy(-offsetX, -offsetY);
+                View parent = (View) getParent();
+                parent.scrollTo(parent.getScrollX() - offsetX, parent.getScrollY() - offsetY);
                 break;
         }
-
-
         return true;
     }
 }

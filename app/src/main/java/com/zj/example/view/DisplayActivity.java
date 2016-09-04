@@ -6,8 +6,6 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 
 /**
- * Title: DisplayActivity
- * Description:
  * Copyright:Copyright(c)2016
  * CreateTime:16/8/27  12:10
  *
