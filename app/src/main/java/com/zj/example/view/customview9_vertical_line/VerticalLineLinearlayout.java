@@ -60,17 +60,23 @@ public class VerticalLineLinearlayout extends LinearLayout {
         if (childCount <= 1) return;
 
         int childTotalHeight = 0;
-        int childHeight = 0;
+        int firstChildHeight = 0;
+        int endChildHeight = 0;
 
         for (int i = 0; i < childCount; i++) {
             View view = getChildAt(i);
-            childHeight = view.getMeasuredHeight();
+            int childHeight = view.getMeasuredHeight();
             childTotalHeight += childHeight;
+            if (i == 0) {
+                firstChildHeight = childHeight;
+            } else if (i == (childCount - 1)) {
+                endChildHeight = childHeight;
+            }
         }
         int startX = getPaddingLeft() + leftMargin;
 
         canvas.drawLine(
                 startX,
-                childHeight / 2, startX, childTotalHeight - (childHeight / 2), paint);
+                firstChildHeight / 2, startX, childTotalHeight - (endChildHeight / 2), paint);
     }
 }
