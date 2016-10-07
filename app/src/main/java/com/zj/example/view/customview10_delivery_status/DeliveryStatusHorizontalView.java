@@ -90,6 +90,7 @@ public class DeliveryStatusHorizontalView extends ViewGroup {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        System.out.println("onMeasure");
         measureChildren(widthMeasureSpec, heightMeasureSpec);
         int width = 0;
         int height = minHeight;
@@ -104,18 +105,33 @@ public class DeliveryStatusHorizontalView extends ViewGroup {
         setMeasuredDimension(width, height + getPaddingTop() + getPaddingBottom());
     }
 
+    /**
+     * onSizeChanged调用的时机是在onMeasure之后, 可以再onMeasure中获取控件的高度,
+     * 但是onMeasure会调用多次, onSizeChanged只会调用一次, 所以最好在onSizeChanged方法
+     * 获取控件的大小, onSizeChanged不会获取控件的getTop, getLeft, 因为onSizechanged方法
+     * 在onLayout之前执行, 这个时候还没有确定控件和子控件的位置, 所以getTop=0
+     * @param w
+     * @param h
+     * @param oldw
+     * @param oldh
+     */
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
+        //控件大小改变后会条用onSizeChanged方法,这里可以获得控件的宽高
         offsetX = getChildAt(0).getMeasuredWidth() / 2 - drawbleWidth / 2;
+        System.out.println("onSizeChanged w=" + w + " h=" + h
+                + ", oldw=" + oldw + " oldh="+oldh);
     }
 
     @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
+        System.out.println("onLayout");
+        View childView = getChildAt(0);
+        int bottom = getMeasuredHeight() - getPaddingBottom();
+        int top = bottom - childView.getMeasuredHeight() ;
+
         for (int i = 0; i < getChildCount(); i++) {
-            View childView = getChildAt(0);
-            int top = getMeasuredHeight() - childView.getMeasuredHeight() - getPaddingBottom();
-            int bottom = getMeasuredHeight() - getPaddingBottom();
 
             switch (i) {
                 case 0:
