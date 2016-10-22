@@ -106,7 +106,7 @@ public class DeliveryStatusHorizontalView extends ViewGroup {
     }
 
     /**
-     * onSizeChanged调用的时机是在onMeasure之后, 可以再onMeasure中获取控件的高度,
+     * onSizeChanged调用的时机是在onMeasure之后, 虽然可以再onMeasure中获取控件的高度,
      * 但是onMeasure会调用多次, onSizeChanged只会调用一次, 所以最好在onSizeChanged方法
      * 获取控件的大小, onSizeChanged不会获取控件的getTop, getLeft, 因为onSizechanged方法
      * 在onLayout之前执行, 这个时候还没有确定控件和子控件的位置, 所以getTop=0

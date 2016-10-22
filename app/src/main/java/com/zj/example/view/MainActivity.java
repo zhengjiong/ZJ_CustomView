@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
+        items.add(new Item("Demo0-getLeft_getX_getRawX_getLocationInWindow", DisplayFragment.class, true, R.layout.fragment_customview0));
         items.add(new Item("Demo1-CircleView", DisplayFragment.class, true, R.layout.activity_circleview));
         items.add(new Item("Demo2-CircleView", CustomView2Fragment.class, true));
         items.add(new Item("Demo3-自定义View几种设置属性的方法", CustomView3Activity.class, false));
