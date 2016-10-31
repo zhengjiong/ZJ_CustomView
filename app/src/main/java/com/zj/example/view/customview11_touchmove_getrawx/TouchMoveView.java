@@ -46,6 +46,12 @@ public class TouchMoveView extends View {
     }
 
     @Override
+    protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
+        super.onLayout(changed, left, top, right, bottom);
+        System.out.println("onLayout top=" + top);
+    }
+
+    @Override
     public boolean onTouchEvent(MotionEvent event) {
         int action = event.getAction();
 
@@ -67,7 +73,7 @@ public class TouchMoveView extends View {
                 int offsetX = currentX - lastX;
                 int offsetY = currentY - lastY;
 
-                //设置当前view的位置
+                //设置当前view的位置, layout内部会调用onLayout方法
                 layout(
                         getLeft() + offsetX,
                         getTop() + offsetY,

@@ -31,6 +31,13 @@ public class TouchMoveView extends View {
     }
 
     @Override
+    protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
+        super.onLayout(changed, left, top, right, bottom);
+        //scrollBy不会调用onLayout方法
+        System.out.println("onLayout top=" + top);
+    }
+
+    @Override
     public boolean onTouchEvent(MotionEvent event) {
         int currentX = (int) event.getX();
         int currentY = (int) event.getY();
@@ -52,6 +59,7 @@ public class TouchMoveView extends View {
                  * 如果将offsetX和offsetY设置为正数,那么子View将向坐标轴的负方向移动, 如果负数则将向
                  * 坐标轴的正方向移动,所以要使用-offsetX, -offsetY
                  */
+                //scrollBy不会调用onLayout方法
                 ((View) getParent()).scrollBy(-offsetX, -offsetY);
                 break;
         }

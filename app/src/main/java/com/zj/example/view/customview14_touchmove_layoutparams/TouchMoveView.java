@@ -32,6 +32,12 @@ public class TouchMoveView extends View {
     }
 
     @Override
+    protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
+        super.onLayout(changed, left, top, right, bottom);
+        System.out.println("onLayout top=" + top);
+    }
+
+    @Override
     public boolean onTouchEvent(MotionEvent event) {
         int currentX = (int) event.getX();
         int currentY = (int) event.getY();
@@ -53,6 +59,7 @@ public class TouchMoveView extends View {
 
                 params.setMargins(leftMargin, topMargin, params.rightMargin, params.bottomMargin);
 
+                //setLayoutParams内部会调用requestLayout,所以会调用onLayout方法
                 setLayoutParams(params);
                 break;
         }

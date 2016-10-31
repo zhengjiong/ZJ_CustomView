@@ -52,7 +52,7 @@ public class TouchMoveView extends View {
                 int offsetX = currentX - lastX;
                 int offsetY = currentY - lastY;
 
-
+                //offset不会调用onLayout方法
                 offsetLeftAndRight(offsetX);
 
                 offsetTopAndBottom(offsetY);
@@ -64,5 +64,12 @@ public class TouchMoveView extends View {
 
 
         return true;
+    }
+
+    @Override
+    protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
+        super.onLayout(changed, left, top, right, bottom);
+        //offset不会调用onLayout方法
+        System.out.println("onLayout top=" + top);
     }
 }

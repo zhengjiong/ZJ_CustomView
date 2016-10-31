@@ -40,6 +40,13 @@ public class TouchMoveView extends View {
     }
 
     @Override
+    protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
+        super.onLayout(changed, left, top, right, bottom);
+        //startScroll不会调用onLayout方法
+        System.out.println("onLayout top=" + top);
+    }
+
+    @Override
     public void computeScroll() {
         super.computeScroll();
         if (scroller.computeScrollOffset()) {
