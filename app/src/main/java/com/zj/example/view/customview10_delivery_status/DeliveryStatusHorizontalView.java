@@ -124,6 +124,14 @@ public class DeliveryStatusHorizontalView extends ViewGroup {
                 + ", oldw=" + oldw + " oldh="+oldh);
     }
 
+    /**
+     * @param changed
+     *
+     * @param l  View左侧距父View左侧的距离	getLeft();
+     * @param t  View顶部距父View顶部的距离	getTop();
+     * @param r  View右侧距父View左侧的距离	getRight();
+     * @param b  View底部距父View顶部的距离	getBottom();
+     */
     @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
         System.out.println("onLayout");
