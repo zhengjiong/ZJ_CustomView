@@ -7,5 +7,10 @@
 
     <com.zj.example.view.customview6_canvas_save.CustomView
         android:layout_width="match_parent"
-        android:layout_height="100dp"/>
+        android:layout_height="100dp"
+        android:text="customview"
+        android:textColor="@android:color/white"/>
+    <com.zj.example.view.customview6_canvas_save.CustomViewLine
+        android:layout_width="match_parent"
+        android:layout_height="250dp"/>
 </LinearLayout>

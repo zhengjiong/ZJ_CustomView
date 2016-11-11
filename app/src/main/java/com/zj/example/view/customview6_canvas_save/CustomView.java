@@ -41,17 +41,21 @@ public class CustomView extends TextView {
         mPaintTranslateGreen.setStyle(Paint.Style.FILL);
     }
 
+    /**
+     * translate是坐标系的移动，可以为图形绘制选择一个合适的坐标系。
+     * 请注意，位移是基于当前位置移动，而不是每次基于屏幕左上角的(0,0)点移动
+     */
     @Override
     protected void onDraw(Canvas canvas) {
 
         canvas.drawRect(0, 0, getMeasuredWidth(), getMeasuredHeight(), mPaintBlue);
-        canvas.drawRect(20, 20, getMeasuredWidth() - 20,  getMeasuredHeight() - 20, mPaintYellow);
+        canvas.drawRect(50, 50, getMeasuredWidth() - 50,  getMeasuredHeight() - 50, mPaintYellow);
 
         //保存当前视图没有被平移时候的状态
         canvas.save();
 
-        //x和y各平移20像素
-        canvas.translate(20, 20);
+        //x和y各平移50像素
+        canvas.translate(50, 50);
 
         //平移后绘制文字, 文字就会在里面的颜色里面
         super.onDraw(canvas);
