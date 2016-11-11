@@ -57,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
         items.add(new Item("Demo19-TouchMove-使用GestureDetector判断是左右滑动还是上下滑动", DisplayFragment.class, true, R.layout.fragment_customview19));
         items.add(new Item("Demo20-TouchMove-自己判断是左右滑动还是上下滑动", DisplayFragment.class, true, R.layout.fragment_customview20));
         items.add(new Item("Demo21-StrokeStyle", DisplayFragment.class, true, R.layout.fragment_stroke_style_layout));
+        items.add(new Item("Demo22-PieChatView(圆形百分比控件)", DisplayFragment.class, true, R.layout.fragment_pie_chat_layout));
 
         mRecyclerView = (RecyclerView) findViewById(R.id.recyclerview);
 
