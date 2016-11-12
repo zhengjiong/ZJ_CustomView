@@ -19,4 +19,5 @@ ROUND:让画的线圆滑设置结合处的样子，Miter:结合处为锐角， R
 ![image](images/Join.png)
 
 
-##2.onSizeChanged调用的时机是在onMeasure之后, 虽然可以再onMeasure中获取控件的高度,但是onMeasure会调用多次, onSizeChanged只会调用一次, 所以最好在onSizeChanged方法获取控件的大小, onSizeChanged不会获取控件的getTop, getLeft, 因为onSizechanged方法在onLayout之前执行, 这个时候还没有确定控件和子控件的位置, 所以getTop=0
+##2.onSizeChanged
+onSizeChanged调用的时机是在onMeasure之后, 虽然可以再onMeasure中获取控件的高度,但是onMeasure会调用多次, onSizeChanged只会调用一次, 所以最好在onSizeChanged方法获取控件的大小, onSizeChanged不会获取控件的getTop, getLeft, 因为onSizechanged方法在onLayout之前执行, 这个时候还没有确定控件和子控件的位置, 所以getTop=0
