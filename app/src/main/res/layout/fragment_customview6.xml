@@ -1,16 +1,27 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".MainActivity">
+    android:layout_height="match_parent">
 
-    <com.zj.example.view.customview6_canvas_save.CustomView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:text="customview"
-        android:textColor="@android:color/white"/>
-    <com.zj.example.view.customview6_canvas_save.CustomViewLine
-        android:layout_width="match_parent"
-        android:layout_height="250dp"/>
-</LinearLayout>
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+        <com.zj.example.view.customview6_canvas_save.CustomView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:text="customview"
+            android:textColor="@android:color/white"/>
+
+        <com.zj.example.view.customview6_canvas_save.CustomViewLine
+            android:layout_width="match_parent"
+            android:layout_height="250dp"/>
+
+        <com.zj.example.view.customview6_canvas_save.CustomViewRect
+            android:layout_width="match_parent"
+            android:layout_height="250dp"/>
+    </LinearLayout>
+</ScrollView>
+

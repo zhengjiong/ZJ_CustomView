@@ -44,6 +44,11 @@ public class CustomView extends TextView {
     /**
      * translate是坐标系的移动，可以为图形绘制选择一个合适的坐标系。
      * 请注意，位移是基于当前位置移动，而不是每次基于屏幕左上角的(0,0)点移动
+     *
+     * 缩放的中心默认为坐标原点,而缩放中心轴就是坐标轴,
+     * 当缩放比例为负数的时候会根据缩放中心轴进行翻转
+     * 参考http://www.gcssloop.com/customview/Canvas_Convert
+     *
      */
     @Override
     protected void onDraw(Canvas canvas) {
