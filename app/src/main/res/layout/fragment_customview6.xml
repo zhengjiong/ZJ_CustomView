@@ -17,11 +17,16 @@
 
         <com.zj.example.view.customview6_canvas_save.CustomViewLine
             android:layout_width="match_parent"
-            android:layout_height="250dp"/>
+            android:layout_height="100dp"/>
 
         <com.zj.example.view.customview6_canvas_save.CustomViewRect
             android:layout_width="match_parent"
-            android:layout_height="250dp"/>
+            android:layout_height="200dp"
+            android:background="@android:color/holo_green_dark"/>
+        <com.zj.example.view.customview6_canvas_save.CustomViewCircle
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:background="@android:color/darker_gray"/>
     </LinearLayout>
 </ScrollView>
 

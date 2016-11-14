@@ -42,7 +42,7 @@ public class CustomViewRect extends View {
         canvas.translate(getMeasuredWidth() / 2, getMeasuredHeight() / 2);
 
         for (int i = 0; i < 20; i++) {
-            canvas.drawRect(-400, -400, 400, 400, mPaint);
+            canvas.drawRect(-300, -300, 300, 300, mPaint);
             /**
              * 画布缩放(基于坐标0,0来缩放, 如果要指定缩放坐标可以使用:
              *
