@@ -1,6 +1,7 @@
 package com.zj.example.view.customview6_canvas_save;
 
 import android.content.Context;
+import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.util.AttributeSet;
@@ -26,8 +27,23 @@ public class CustomViewCircle extends View{
 
         mPaint.setColor(Color.BLACK);
         mPaint.setStyle(Paint.Style.STROKE);
-        mPaint.setStrokeWidth(10);
+        mPaint.setStrokeWidth(4);
+    }
 
-        TODO: 2016/11/14
+    @Override
+    protected void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+        //把坐标移动到view的中心
+        canvas.translate(getMeasuredWidth() / 2, getMeasuredHeight() / 2);
+
+        canvas.drawCircle(0, 0, 180, mPaint);
+        canvas.drawCircle(0, 0, 170, mPaint);
+
+        for (int i = 0; i <= 360; i=i+30) {
+            canvas.drawLine(0, 180, 0, 170, mPaint);
+
+            //旋转30度,默认旋转中心是坐标原点
+            canvas.rotate(30);
+        }
     }
 }
