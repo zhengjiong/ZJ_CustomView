@@ -60,7 +60,8 @@ public class MainActivity extends AppCompatActivity {
         items.add(new Item("Demo22-PieChatView(圆形百分比控件)", DisplayFragment.class, true, R.layout.fragment_customview22_pie_chat));
         items.add(new Item("Demo23-drawPicture", DisplayFragment.class, true, R.layout.fragment_customview23_picture));
         items.add(new Item("Demo24-drawBitmap", DisplayFragment.class, true, R.layout.fragment_customview24_drawbitmap));
-        items.add(new Item("Demo25-drawBitmap2", DrawBitmapFragment.class, true));
+        items.add(new Item("Demo24-drawBitmap2", DrawBitmapFragment.class, true));
+        items.add(new Item("Demo25-drawText", DisplayFragment.class, true, R.layout.fragment_customview25_drawtext));
 
         mRecyclerView = (RecyclerView) findViewById(R.id.recyclerview);
 
