@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.zj.example.view.bean.Item;
 import com.zj.example.view.fragment.CustomView2Fragment;
+import com.zj.example.view.fragment.CustomView30Fragment;
 import com.zj.example.view.fragment.CustomView3Activity;
 import com.zj.example.view.fragment.CustomView8Fragment;
 import com.zj.example.view.fragment.CustomView9Fragment;
@@ -62,6 +63,9 @@ public class MainActivity extends AppCompatActivity {
         items.add(new Item("Demo24-drawBitmap", DisplayFragment.class, true, R.layout.fragment_customview24_drawbitmap));
         items.add(new Item("Demo24-drawBitmap2", DrawBitmapFragment.class, true));
         items.add(new Item("Demo25-drawText", DisplayFragment.class, true, R.layout.fragment_customview25_drawtext));
+        items.add(new Item("Demo28-垂直滚动textview", DisplayFragment.class, true, R.layout.fragment_customview28_vertical_scroll_textview));
+        items.add(new Item("Demo29-垂直滚动textview-用onDraw实现", DisplayFragment.class, true, R.layout.fragment_customview29_vertical_scroll_textview));
+        items.add(new Item("Demo30-滑动冲突-scroll嵌套viewpager", CustomView30Fragment.class, true));
 
         mRecyclerView = (RecyclerView) findViewById(R.id.recyclerview);
 
