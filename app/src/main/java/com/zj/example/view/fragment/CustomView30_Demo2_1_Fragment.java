@@ -10,41 +10,36 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.zj.example.view.R;
-import com.zj.example.view.customview30_scroll_conflict.demo1.CustomViewPager;
+import com.zj.example.view.customview30_scroll_conflict.demo2.CustomViewPager;
 import com.zj.example.view.utils.DisplayUtils;
 
 /**
- * Title: CustomView30Fragment
- * Description: ScrollView嵌套Viewpager
+ * Title: CustomView30_Demo2_1_Fragment
+ * Description:
  * Copyright:Copyright(c)2016
- * CreateTime:16/12/12  16:18
+ * Company: 博智维讯信息技术有限公司
+ * CreateTime:16/12/16  10:25
  *
  * @author 郑炯
  * @version 1.0
  */
-public class CustomView30Fragment extends Fragment {
+public class CustomView30_Demo2_1_Fragment extends Fragment {
     private CustomViewPager viewPager;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_customview30_scroll_conflict, container, false);
+        View view = inflater.inflate(R.layout.fragment_customview30_scroll_conflict_demo2_1, container, false);
         viewPager = (CustomViewPager) view.findViewById(R.id.viewpager);
+        viewPager.setAdapter(new CustomPagerAdapter());
         return view;
     }
 
-    @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
-        viewPager.setAdapter(new CustomPagerAdapter());
-    }
-
-    public class CustomPagerAdapter extends PagerAdapter{
+    public class CustomPagerAdapter extends PagerAdapter {
 
         @Override
         public int getCount() {
-            return 10;
+            return 3;
         }
 
         @Override

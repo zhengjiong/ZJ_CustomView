@@ -13,6 +13,8 @@ import android.widget.TextView;
 import com.zj.example.view.bean.Item;
 import com.zj.example.view.fragment.CustomView2Fragment;
 import com.zj.example.view.fragment.CustomView30Fragment;
+import com.zj.example.view.fragment.CustomView30_Demo2_1_Fragment;
+import com.zj.example.view.fragment.CustomView30_Demo2_2_Fragment;
 import com.zj.example.view.fragment.CustomView3Activity;
 import com.zj.example.view.fragment.CustomView8Fragment;
 import com.zj.example.view.fragment.CustomView9Fragment;
@@ -38,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         items.add(new Item("Demo0-getLeft_getX_getRawX_getLocationInWindow", DisplayFragment.class, true, R.layout.fragment_customview0));
+        items.add(new Item("Demo0.1-onTouchEvent-事件分发测试", DisplayFragment.class, true, R.layout.fragment_customview0_touchevent));
         items.add(new Item("Demo1-CircleView", DisplayFragment.class, true, R.layout.activity_circleview));
         items.add(new Item("Demo2-CircleView", CustomView2Fragment.class, true));
         items.add(new Item("Demo3-自定义View几种设置属性的方法", CustomView3Activity.class, false));
@@ -66,6 +69,8 @@ public class MainActivity extends AppCompatActivity {
         items.add(new Item("Demo28-垂直滚动textview", DisplayFragment.class, true, R.layout.fragment_customview28_vertical_scroll_textview));
         items.add(new Item("Demo29-垂直滚动textview-用onDraw实现", DisplayFragment.class, true, R.layout.fragment_customview29_vertical_scroll_textview));
         items.add(new Item("Demo30-滑动冲突-scroll嵌套viewpager", CustomView30Fragment.class, true));
+        items.add(new Item("Demo30-滑动冲突-horizontalScorllview嵌套viewpager解决方案1", CustomView30_Demo2_1_Fragment.class, true));
+        items.add(new Item("Demo30-滑动冲突-horizontalScorllview嵌套viewpager解决方案2", CustomView30_Demo2_2_Fragment.class, true));
 
         mRecyclerView = (RecyclerView) findViewById(R.id.recyclerview);
 

@@ -1,4 +1,4 @@
-package com.zj.example.view.customview30_scroll_conflict;
+package com.zj.example.view.customview30_scroll_conflict.demo1;
 
 import android.content.Context;
 import android.support.v4.view.ViewPager;
