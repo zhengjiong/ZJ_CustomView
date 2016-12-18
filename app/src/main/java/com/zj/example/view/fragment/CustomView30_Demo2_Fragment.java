@@ -8,43 +8,43 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import com.zj.example.view.R;
-import com.zj.example.view.customview30_scroll_conflict.demo1.CustomViewPager;
+import com.zj.example.view.customview30_scroll_conflict.demo2.CustomViewPager;
 import com.zj.example.view.utils.DisplayUtils;
 
 /**
- * Title: CustomView30Fragment
- * Description: ScrollView嵌套Viewpager
+ * Description: 解决horizontalScroll嵌套viewpager滑动冲突的方法有两种:
+ * 1.重写HorizontalScrollView
+ * 2.重写ViewPager(本demo的方案)
+ *
  * Copyright:Copyright(c)2016
- * CreateTime:16/12/12  16:18
+ * CreateTime:16/12/16  10:25
  *
  * @author 郑炯
  * @version 1.0
  */
-public class CustomView30Fragment extends Fragment {
+public class CustomView30_Demo2_Fragment extends Fragment {
     private CustomViewPager viewPager;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_customview30_scroll_conflict, container, false);
+        View view = inflater.inflate(R.layout.fragment_customview30_scroll_conflict_demo2, container, false);
         viewPager = (CustomViewPager) view.findViewById(R.id.viewpager);
+        viewPager.setAdapter(new CustomPagerAdapter());
+
+        int screenWidth = getResources().getDisplayMetrics().widthPixels;
+        viewPager.setLayoutParams(new LinearLayout.LayoutParams(screenWidth, DisplayUtils.dp2px(getContext(), 300)));
         return view;
     }
 
-    @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
-        viewPager.setAdapter(new CustomPagerAdapter());
-    }
-
-    public class CustomPagerAdapter extends PagerAdapter{
+    public class CustomPagerAdapter extends PagerAdapter {
 
         @Override
         public int getCount() {
-            return 10;
+            return 3;
         }
 
         @Override
