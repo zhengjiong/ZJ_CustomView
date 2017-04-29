@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <com.zj.example.view.customview31_progress.ProgressView
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:background="@drawable/shape_stroke_background"
+        android:layout_centerInParent="true"/>
+</RelativeLayout>

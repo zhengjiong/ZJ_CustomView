@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
         items.add(new Item("Demo29-垂直滚动textview-用onDraw实现", DisplayFragment.class, true, R.layout.fragment_customview29_vertical_scroll_textview));
         items.add(new Item("Demo30-滑动冲突-horizontalScorllview嵌套viewpager解决方案1", CustomView30_Demo1_Fragment.class, true));
         items.add(new Item("Demo30-滑动冲突-horizontalScorllview嵌套viewpager解决方案2", CustomView30_Demo2_Fragment.class, true));
-
+        items.add(new Item("Demo31-仿淘宝京东进度条", DisplayFragment.class, true, R.layout.fragment_customview31));
         mRecyclerView = (RecyclerView) findViewById(R.id.recyclerview);
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
