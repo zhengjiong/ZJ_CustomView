@@ -10,8 +10,24 @@ android {
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
+
+        manifestPlaceholders = [
+                BAIDU_AK : "wKj5I6YPlLBpsCM24ReDdGetZGvadnZw"
+        ]
+    }
+    signingConfigs{
+        debug{
+            storeFile file("keystore.jks")
+            storePassword "android"
+            keyAlias "zhengjiong"
+            keyPassword "android"
+        }
     }
     buildTypes {
+        debug{
+            signingConfig signingConfigs.debug
+        }
+
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
