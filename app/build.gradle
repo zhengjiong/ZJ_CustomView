@@ -16,7 +16,7 @@ android {
         ]
     }
     signingConfigs{
-        debug{
+        sign{
             storeFile file("keystore.jks")
             storePassword "android"
             keyAlias "zhengjiong"
@@ -25,12 +25,13 @@ android {
     }
     buildTypes {
         debug{
-            signingConfig signingConfigs.debug
+            signingConfig signingConfigs.sign
         }
 
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.sign
+            //proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
 }

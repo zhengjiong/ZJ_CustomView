@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.baidu.mapapi.SDKInitializer;
 import com.zj.example.view.bean.Item;
 import com.zj.example.view.fragment.CustomView2Fragment;
 import com.zj.example.view.fragment.CustomView30_Demo1_Fragment;
@@ -37,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        SDKInitializer.initialize(getApplicationContext());
 
         items.add(new Item("Demo0-getLeft_getX_getRawX_getLocationInWindow", DisplayFragment.class, true, R.layout.fragment_customview0));
         items.add(new Item("Demo0.1-onTouchEvent-事件分发测试", DisplayFragment.class, true, R.layout.fragment_customview0_touchevent));
@@ -69,7 +71,9 @@ public class MainActivity extends AppCompatActivity {
         items.add(new Item("Demo29-垂直滚动textview-用onDraw实现", DisplayFragment.class, true, R.layout.fragment_customview29_vertical_scroll_textview));
         items.add(new Item("Demo30-滑动冲突-horizontalScorllview嵌套viewpager解决方案1", CustomView30_Demo1_Fragment.class, true));
         items.add(new Item("Demo30-滑动冲突-horizontalScorllview嵌套viewpager解决方案2", CustomView30_Demo2_Fragment.class, true));
-        items.add(new Item("Demo31-仿淘宝京东进度条", DisplayFragment.class, true, R.layout.fragment_customview31));
+        items.add(new Item("Demo31-滑动冲突-scrollview嵌套baidumap解决方案1", DisplayFragment.class, true, R.layout.fragment_customview31));
+        items.add(new Item("Demo31-滑动冲突-scrollview嵌套baidumap解决方案1", DisplayFragment.class, true, R.layout.fragment_customview31));
+        items.add(new Item("Demo34-仿淘宝京东进度条", DisplayFragment.class, true, R.layout.fragment_customview34));
         mRecyclerView = (RecyclerView) findViewById(R.id.recyclerview);
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
