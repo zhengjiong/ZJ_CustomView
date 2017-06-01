@@ -1,14 +1,19 @@
 package com.zj.example.view.customview31_scroll_conflict;
 
 import android.content.Context;
+import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ScrollView;
 
-import com.zj.example.view.customview30_scroll_conflict.demo1.CustomHorizontalScrollView;
+import com.baidu.mapapi.map.TextureMapView;
 
 /**
+ * 解决scrollview嵌套baidumap方式1:重写scrollview的onInterceptTouchEvent方法。
+ *
  * 因为ScrollView默认onInterceptTouchEvent在move的时候会返回true,
  * 所以onTouch的move事件会被ScrollView消费掉,通过重写onInterceptTouchEvent方法,在
  * 的时候不拦截,从而解决滑动冲突问题
@@ -69,13 +74,13 @@ public class CustomScrollView extends ScrollView {
         boolean b = super.onTouchEvent(event);
         switch (action) {
             case MotionEvent.ACTION_DOWN:
-                Log.e(TAG, "onTouchEvent ACTION_DOWN " + b);
+                //Log.e(TAG, "onTouchEvent ACTION_DOWN " + b);
                 break;
             case MotionEvent.ACTION_MOVE:
-                Log.e(TAG, "onTouchEvent ACTION_MOVE " + b);
+                //Log.e(TAG, "onTouchEvent ACTION_MOVE " + b);
                 break;
             case MotionEvent.ACTION_UP:
-                Log.e(TAG, "onTouchEvent ACTION_UP " + b);
+                //Log.e(TAG, "onTouchEvent ACTION_UP " + b);
                 break;
             default:
                 break;
@@ -86,9 +91,33 @@ public class CustomScrollView extends ScrollView {
 
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
-       boolean result = super.onInterceptTouchEvent(ev);
-        switch (ev.getAction())
-        {
+        int x = (int) ev.getX();
+        int y = (int) ev.getY();
+
+        Log.i(TAG, "x=" + x + " ,y=" + y);
+        View textureMapView = ((ViewGroup) getChildAt(0)).getChildAt(0);
+        if (textureMapView instanceof TextureMapView) {
+            Rect rect = new Rect();
+            //getLocalVisibleRect的作用是获取视图本身可见的坐标区域，坐标以自己的左上角为原点（0，0）
+            textureMapView.getLocalVisibleRect(rect);
+
+            Log.i(TAG, "1rect.left=" + rect.left + " ,rect.right=" + rect.right + " ,rect.top=" + rect.top + " ,rect.bottom=" + rect.bottom + " ,height=" + rect.height());
+            if (rect.bottom > 0) {
+                //重设高度, 因为滑动后top会变
+                rect.bottom = rect.height();
+                rect.top = 0;
+            }
+            Log.i(TAG, "2rect.left=" + rect.left + " ,rect.right=" + rect.right + " ,rect.top=" + rect.top + " ,rect.bottom=" + rect.bottom + " ,height=" + rect.height());
+
+            boolean isContains = rect.contains(x, y);
+            System.out.println("isContains = " + isContains);
+
+            if (isContains) {
+                return false;
+            }
+        }
+
+        /*switch (ev.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 Log.e(TAG, "onInterceptTouchEvent ACTION_DOWN " + result);
                 break;
@@ -100,8 +129,8 @@ public class CustomScrollView extends ScrollView {
                 break;
             default:
                 break;
-        }
+        }*/
 
-        return result;
+        return super.onInterceptTouchEvent(ev);
     }
 }
