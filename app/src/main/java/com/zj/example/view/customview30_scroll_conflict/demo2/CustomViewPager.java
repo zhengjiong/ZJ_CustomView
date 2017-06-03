@@ -42,7 +42,7 @@ public class CustomViewPager extends ViewPager {
 
                 //如果scrollview已经滚动了就还是让Scrollview拦截
                 if (scrollView.getScrollX() != 0) {
-                    //让父控件重写拦截
+                    //让父控件重新拦截
                     scrollView.requestDisallowInterceptTouchEvent(false);
                 } else {
                     //让父控件不拦截
