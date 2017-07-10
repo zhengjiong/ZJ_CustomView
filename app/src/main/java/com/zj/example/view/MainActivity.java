@@ -49,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
         items.add(new Item("Demo6-canvas_save,translate,restore", DisplayFragment.class, true, R.layout.fragment_customview6));
         items.add(new Item("Demo7-LinearGradient-Matrix", DisplayFragment.class, true, R.layout.fragment_customview7));
         items.add(new Item("Demo8-ProgressView-Animation", CustomView8Fragment.class, true));
+        items.add(new Item("Demo8.1-ProgressView-Animation", DisplayFragment.class, true, R.layout.fragment_customview8_1));
         items.add(new Item("Demo9-VerticalLine-LinearLayout", CustomView9Fragment.class, true));
         items.add(new Item("Demo10-Delivery-status", DisplayFragment.class, true, R.layout.fragment_customview10));
         items.add(new Item("Demo11-TouchMove-getRawX", DisplayFragment.class, true, R.layout.fragment_customview11));
