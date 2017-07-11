@@ -1,14 +1,22 @@
 package com.zj.example.view.customview8_1_progressview;
 
+import android.animation.ObjectAnimator;
+import android.animation.ValueAnimator;
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffXfermode;
+import android.graphics.RectF;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
+import android.view.animation.AccelerateDecelerateInterpolator;
+import android.view.animation.DecelerateInterpolator;
 
 import com.zj.example.view.R;
 
@@ -17,9 +25,12 @@ import com.zj.example.view.R;
  * date: 2017/7/10 21:28
  */
 
-public class ProgressView extends View {
+public class ProgressView extends View implements ValueAnimator.AnimatorUpdateListener{
     private Paint mDrawablePaint;
     private BitmapDrawable bitmapDrawable;
+    private PorterDuffXfermode mDuffXfermode;
+    private int startX;
+    private ObjectAnimator mObjectAnimator;
 
     public ProgressView(Context context) {
         super(context);
@@ -35,6 +46,20 @@ public class ProgressView extends View {
 
         mDrawablePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         mDrawablePaint.setDither(true);
+
+        mDuffXfermode = new PorterDuffXfermode(PorterDuff.Mode.SRC_IN);
+    }
+
+    @Override
+    protected void onAttachedToWindow() {
+        super.onAttachedToWindow();
+        System.out.println("onAttachedToWindow");
+    }
+
+    @Override
+    protected void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        System.out.println("onDetachedFromWindow");
     }
 
     @Override
@@ -43,28 +68,45 @@ public class ProgressView extends View {
         int width = getMeasuredWidth();
         int height = getMeasuredHeight();
         int drawableWidth = bitmapDrawable.getIntrinsicWidth();
+
+        int count = canvas.saveLayer(0, 0, getMeasuredWidth(), getMeasuredHeight(), mDrawablePaint, Canvas.ALL_SAVE_FLAG);
         canvas.drawBitmap(
                 bitmapDrawable.getBitmap(),
                 0,
                 height / 2 - drawableWidth / 2,
                 mDrawablePaint
         );
-        canvas.save();
-        canvas.translate(width / 2 - drawableWidth / 2, 0);
         canvas.drawBitmap(
                 bitmapDrawable.getBitmap(),
-                0,
+                width / 2 - drawableWidth / 2,
                 height / 2 - bitmapDrawable.getIntrinsicHeight() / 2,
                 mDrawablePaint
         );
-        canvas.restore();
-        canvas.translate(width - drawableWidth, 0);
         canvas.drawBitmap(
                 bitmapDrawable.getBitmap(),
-                0,
+                width - drawableWidth,
                 height / 2 - bitmapDrawable.getIntrinsicHeight() / 2,
                 mDrawablePaint
         );
+        mDrawablePaint.setXfermode(mDuffXfermode);
+
+        mDrawablePaint.setColor(Color.parseColor("#00b1b1"));
+        canvas.drawRect(new RectF(startX, 0, width, height), mDrawablePaint);
+
+        mDrawablePaint.setXfermode(null);
+        canvas.restoreToCount(count);
+    }
+
+    @Override
+    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
+        super.onSizeChanged(w, h, oldw, oldh);
+        System.out.println("onSizeChanged");
+        mObjectAnimator = ObjectAnimator.ofInt(this, "startX", 0, w);
+        mObjectAnimator.addUpdateListener(this);
+        mObjectAnimator.setInterpolator(new AccelerateDecelerateInterpolator());
+        mObjectAnimator.setDuration(2000);
+        mObjectAnimator.setPropertyName("startX");
+        mObjectAnimator.start();
     }
 
     @Override
@@ -93,5 +135,18 @@ public class ProgressView extends View {
 
     private int convertDpToPixel(float dp) {
         return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, getResources().getDisplayMetrics());
+    }
+
+    public int getStartX() {
+        return startX;
+    }
+
+    public void setStartX(int startX) {
+        this.startX = startX;
+    }
+
+    @Override
+    public void onAnimationUpdate(ValueAnimator animation) {
+        invalidate();
     }
 }
