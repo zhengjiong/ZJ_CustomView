@@ -17,6 +17,7 @@ import android.util.TypedValue;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
+import android.view.animation.LinearInterpolator;
 
 import com.zj.example.view.R;
 
@@ -25,11 +26,14 @@ import com.zj.example.view.R;
  * date: 2017/7/10 21:28
  */
 
-public class ProgressView extends View implements ValueAnimator.AnimatorUpdateListener{
+public class ProgressView extends View implements ValueAnimator.AnimatorUpdateListener {
     private Paint mDrawablePaint;
+    private Paint mLinePaint;
+    private Paint mTextPaint;
+
     private BitmapDrawable bitmapDrawable;
     private PorterDuffXfermode mDuffXfermode;
-    private int startX;
+    private int endX;
     private ObjectAnimator mObjectAnimator;
 
     public ProgressView(Context context) {
@@ -43,6 +47,17 @@ public class ProgressView extends View implements ValueAnimator.AnimatorUpdateLi
     public ProgressView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         bitmapDrawable = (BitmapDrawable) getResources().getDrawable(R.mipmap.vector_certified);
+
+        mTextPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        mTextPaint.setColor(Color.parseColor("#f54757"));
+        mTextPaint.setTextSize(62);
+        mTextPaint.setStyle(Paint.Style.FILL);
+        mTextPaint.setTextAlign(Paint.Align.LEFT);
+
+        mLinePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        mLinePaint.setColor(Color.parseColor("#f54757"));
+        mLinePaint.setStyle(Paint.Style.STROKE);
+        mLinePaint.setStrokeWidth(12);
 
         mDrawablePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         mDrawablePaint.setDither(true);
@@ -70,6 +85,12 @@ public class ProgressView extends View implements ValueAnimator.AnimatorUpdateLi
         int drawableWidth = bitmapDrawable.getIntrinsicWidth();
 
         int count = canvas.saveLayer(0, 0, getMeasuredWidth(), getMeasuredHeight(), mDrawablePaint, Canvas.ALL_SAVE_FLAG);
+        canvas.drawLine(drawableWidth,
+                height / 2,
+                width - drawableWidth,
+                height / 2,
+                mLinePaint
+        );
         canvas.drawBitmap(
                 bitmapDrawable.getBitmap(),
                 0,
@@ -88,10 +109,16 @@ public class ProgressView extends View implements ValueAnimator.AnimatorUpdateLi
                 height / 2 - bitmapDrawable.getIntrinsicHeight() / 2,
                 mDrawablePaint
         );
+        String text = "测试1";
+        float textWidth = mTextPaint.measureText(text);
+        canvas.drawText(text, 0, height / 2 + bitmapDrawable.getIntrinsicHeight(), mTextPaint);
+        canvas.drawText(text, width / 2 - textWidth / 2, height / 2 + bitmapDrawable.getIntrinsicHeight(), mTextPaint);
+        canvas.drawText(text, width - textWidth, height / 2 + bitmapDrawable.getIntrinsicHeight(), mTextPaint);
+
         mDrawablePaint.setXfermode(mDuffXfermode);
 
         mDrawablePaint.setColor(Color.parseColor("#00b1b1"));
-        canvas.drawRect(new RectF(startX, 0, width, height), mDrawablePaint);
+        canvas.drawRect(new RectF(0, 0, endX, height), mDrawablePaint);
 
         mDrawablePaint.setXfermode(null);
         canvas.restoreToCount(count);
@@ -101,11 +128,11 @@ public class ProgressView extends View implements ValueAnimator.AnimatorUpdateLi
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
         System.out.println("onSizeChanged");
-        mObjectAnimator = ObjectAnimator.ofInt(this, "startX", 0, w);
+        mObjectAnimator = ObjectAnimator.ofInt(this, "endX", 0, w);
         mObjectAnimator.addUpdateListener(this);
-        mObjectAnimator.setInterpolator(new AccelerateDecelerateInterpolator());
-        mObjectAnimator.setDuration(2000);
-        mObjectAnimator.setPropertyName("startX");
+        mObjectAnimator.setInterpolator(new DecelerateInterpolator());
+        mObjectAnimator.setDuration(5000);
+        mObjectAnimator.setPropertyName("endX");
         mObjectAnimator.start();
     }
 
@@ -137,12 +164,12 @@ public class ProgressView extends View implements ValueAnimator.AnimatorUpdateLi
         return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, getResources().getDisplayMetrics());
     }
 
-    public int getStartX() {
-        return startX;
+    public int getEndX() {
+        return endX;
     }
 
-    public void setStartX(int startX) {
-        this.startX = startX;
+    public void setEndX(int endX) {
+        this.endX = endX;
     }
 
     @Override
